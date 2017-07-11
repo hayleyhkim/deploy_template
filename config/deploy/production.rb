@@ -43,7 +43,7 @@ server '54.252.138.189', user: 'ubuntu', roles: %w{app db web}
 # Global options
 # --------------
   set :ssh_options, {
-    keys: %w(/users/haeri/Downloads/likelion.pem),
+    keys: %w(/home/haeri/Downloads/likelion.pem),
    forward_agent: false,
     user: 'ubuntu'
   }
