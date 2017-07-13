@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.4.0'
+lock '3.8.2'
 
 set :application, 'deploy'
 set :repo_url, 'git@github.com:hayleyhkim/deploy_template.git'
@@ -23,11 +23,14 @@ set :repo_url, 'git@github.com:hayleyhkim/deploy_template.git'
 # set :pty, true
 
 # Default value for :linked_files is [] - privcy related files. don't upload it to github
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+#set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
 # Default value for linked_dirs is [] - don't upload it to github (logs shouldn't be shared)
-set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+#set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
 
+
+append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
@@ -50,7 +53,3 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-    end
-  end
-
-end

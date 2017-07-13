@@ -8,7 +8,7 @@
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
 set :stage, :production
-server '54.252.138.189', user: 'ubuntu', roles: %w{app db web}
+server '54.206.126.72', user: 'ubuntu', roles: %w{app db web}
 
 # role-based syntax
 # ==================
@@ -43,7 +43,7 @@ server '54.252.138.189', user: 'ubuntu', roles: %w{app db web}
 # Global options
 # --------------
   set :ssh_options, {
-    keys: %w(/home/haeri/Downloads/likelion.pem),
+    keys: %w(/home/haeri/Downloads/likelion2017.pem),
    forward_agent: false,
     user: 'ubuntu'
   }
